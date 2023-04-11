@@ -39,8 +39,13 @@ public class Castle : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth - dmg, 0, maxHealth);
         OnDamageTaken?.Invoke(currentHealth, maxHealth);
 
+        var audioManager = ServiceLocator.GetService<AudioManager>();
+
+        audioManager.PlaySFX(SFXEnum.CastleHit);
+
         if(currentHealth == 0)
         {
+            audioManager.PlaySFX(SFXEnum.CastleDestroy);
             Death();
         }
     }

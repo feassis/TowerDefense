@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Tools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,6 +17,11 @@ public class MainMenu : MonoBehaviour
         newGameButton.onClick.AddListener(OnNewGameButtonClicked);
         QuitGameButton.onClick.AddListener(OnQuitGameButtonClicked);
         levelSelectButton.onClick.AddListener(OnLevelSelectButtonClicked);
+    }
+
+    private void Start()
+    {
+        ServiceLocator.GetService<AudioManager>().PlayMenuMusic();
     }
 
     private void OnLevelSelectButtonClicked()

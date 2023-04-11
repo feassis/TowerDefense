@@ -145,6 +145,7 @@ public class TowerManager : MonoBehaviour
             moneyManager.SpendMoney(activeTower.GetTowerCost());
 
             isPlacing = false;
+            ServiceLocator.GetService<AudioManager>().PlaySFX(SFXEnum.TowerPlace);
             Instantiate(activeTower, indicator.transform.position, indicator.transform.rotation);
             Destroy(indicator.gameObject);
         }
@@ -154,6 +155,7 @@ public class TowerManager : MonoBehaviour
     {
         var sellPrice = selectedTower.GetTowerSellPrice();
         ServiceLocator.GetService<MoneyManager>().GiveMoney(sellPrice);
+        ServiceLocator.GetService<AudioManager>().PlaySFX(SFXEnum.TowerRemove);
         Destroy(selectedTower.gameObject);
         UnselectTower();
     }

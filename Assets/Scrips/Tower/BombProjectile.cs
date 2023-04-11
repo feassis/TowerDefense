@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Tools;
 using UnityEngine;
 
 public class BombProjectile : MonoBehaviour
@@ -19,6 +20,7 @@ public class BombProjectile : MonoBehaviour
 
     private void Start()
     {
+        ServiceLocator.GetService<AudioManager>().PlaySFX(SFXEnum.BombFire);
         rb.velocity = ((target.position - transform.position) 
             - Physics.gravity * movementDuration * movementDuration * 0.5f)/ movementDuration;
     }
@@ -41,6 +43,7 @@ public class BombProjectile : MonoBehaviour
         }
 
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        ServiceLocator.GetService<AudioManager>().PlaySFX(SFXEnum.BombExplode);
         Destroy(gameObject);
     }
 }

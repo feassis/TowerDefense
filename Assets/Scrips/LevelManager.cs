@@ -28,6 +28,11 @@ public class LevelManager : MonoBehaviour
         ServiceLocator.RegisterService<LevelManager>(this);
     }
 
+    private void Start()
+    {
+        ServiceLocator.GetService<AudioManager>().PlayBGM();
+    }
+
     public void RegisterCastle(Castle castle)
     {
         castles.Add(castle);

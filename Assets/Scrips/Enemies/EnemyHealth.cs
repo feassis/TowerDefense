@@ -19,6 +19,7 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHp = maxHp;
         health.UpdateHealthBar(currentHp, maxHp);
+        ServiceLocator.GetService<AudioManager>().PlaySFX(SFXEnum.EnemySpawn);
 
         ServiceLocator.GetService<LevelManager>().RegisterEnemy(this);
     }
@@ -27,6 +28,8 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         currentHp = Mathf.Clamp(currentHp - dmg, 0, maxHp);
+
+        ServiceLocator.GetService<AudioManager>().PlaySFX(SFXEnum.EnemyImpact);
 
         health.gameObject.SetActive(true);
 
@@ -42,6 +45,7 @@ public class EnemyHealth : MonoBehaviour
     {
         ServiceLocator.GetService<MoneyManager>().GiveMoney(monetaryReward);
         ServiceLocator.GetService<LevelManager>().DeregisterEnemy(this);
+        ServiceLocator.GetService<AudioManager>().PlaySFX(SFXEnum.EnemyDeath);
         OnDeath?.Invoke();
         Destroy(gameObject);
     }

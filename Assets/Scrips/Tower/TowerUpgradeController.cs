@@ -61,6 +61,7 @@ public class TowerUpgradeController : MonoBehaviour
     private void UpgradeLevel(UpgradeStage upgradeStage)
     {
         var moneyManager = ServiceLocator.GetService<MoneyManager>();
+        ServiceLocator.GetService<AudioManager>().PlaySFX(SFXEnum.TowerUpgrade);
         moneyManager.SpendMoney(upgradeStage.GetUpgradeCost());
         upgradeStage.level++;
     }

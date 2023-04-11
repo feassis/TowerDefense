@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Tools;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -16,6 +17,7 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         myRB.velocity = transform.forward * moveSpeed;
+        ServiceLocator.GetService<AudioManager>().PlaySFX(SFXEnum.CannonFire);
         StartCoroutine(DestroyAfter10s());
     }
 
