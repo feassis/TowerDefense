@@ -109,6 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f14b6d73fc7c7504781c5b01e545c41d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waves: []
+  spawnPoint: {fileID: 5043310325545830525}
+  possiblePaths: []
+  possibleCastles: []
 --- !u!1001 &5043310325190886453
 PrefabInstance:
   m_ObjectHideFlags: 0

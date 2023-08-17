@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRB: {fileID: -664750486308934848}
-  moveSpeed: 10
+  moveSpeed: 15
   hitEffect: {fileID: 2653696176754448305, guid: f64db435eacc8924da128288303c8196, type: 3}
   hitOnlyOneEnemy: 1
   DamageAmount: 10

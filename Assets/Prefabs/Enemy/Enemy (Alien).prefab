@@ -81,7 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 50
   health: {fileID: 1507468979428480720}
-  monetaryReward: 50
+  monetaryReward: 25
 --- !u!1 &181145416376653065
 GameObject:
   m_ObjectHideFlags: 0
